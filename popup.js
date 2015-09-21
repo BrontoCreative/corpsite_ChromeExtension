@@ -3,20 +3,30 @@
 // found in the LICENSE file.
 
 var myUrl = urlFinder();
+var buttonPress = buttonSelect ();
 
 function urlFinder () {
-	if ($("#button") == "one") {
-		console.log("http://app.bronto.com");
+	if (buttonPress === "one") {
+		return ("http://app.bronto.com");
 	}
-	else if ($("#button") == "two") {
-		console.log("http://bronto.com/welcomekit");
-	} else {
-		console.log("https://server.iad.liveperson.net/hc/77739214/?cmd=file&file=visitorWantsToChat&site=77739214&byhref=1&SESSIONVAR!skill=Lead%20Qualification&imageUrl=https://server.iad.liveperson.nethttps://hosting-source.bronto.com/7894/public/LivePerson/");
+	else if (buttonPress === "two") {
+		return ("http://bronto.com/welcomekit");
+	} else  {
+		return ("https://server.iad.liveperson.net/hc/77739214/?cmd=file&file=visitorWantsToChat&site=77739214&byhref=1&SESSIONVAR!skill=Lead%20Qualification&imageUrl=https://server.iad.liveperson.nethttps://hosting-source.bronto.com/7894/public/LivePerson/");
 	}
 }
 
+function buttonSelect () {
+$(document).ready(function() {
+        $('button').click(function() {
+            console.log( $(this).attr("id"));
+        });
+    });
+}
+
+
 function click(e) {
-  chrome.tabs.create({url: myUrl});
+	    chrome.tabs.create({url: myUrl});
 }
 
 document.addEventListener('DOMContentLoaded', function () {
