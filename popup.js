@@ -2,30 +2,31 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-var myUrl = urlFinder();
-var buttonPress = buttonSelect ();
+//var myUrl = urlFinder(id);
+//var buttonPress = buttonSelect ();
 
-function urlFinder () {
-	if (buttonPress === "one") {
+function urlFinder (id) {
+	if (id === "one") {
 		return ("http://app.bronto.com");
 	}
-	else if (buttonPress === "two") {
+	else if (id === "two") {
 		return ("http://bronto.com/welcomekit");
 	} else  {
 		return ("https://server.iad.liveperson.net/hc/77739214/?cmd=file&file=visitorWantsToChat&site=77739214&byhref=1&SESSIONVAR!skill=Lead%20Qualification&imageUrl=https://server.iad.liveperson.nethttps://hosting-source.bronto.com/7894/public/LivePerson/");
 	}
 }
-
-function buttonSelect () {
-$(document).ready(function() {
-        $('button').click(function() {
-            console.log( $(this).attr("id"));
-        });
-    });
-}
+//
+//function buttonSelect () {
+//$(document).ready(function() {
+//        $('button').click(function() {
+//            return ($(this).attr("id"));
+//       });
+//   });
+//}
 
 
 function click(e) {
+		var myUrl = urlFinder(e.target.id);
 	    chrome.tabs.create({url: myUrl});
 }
 
